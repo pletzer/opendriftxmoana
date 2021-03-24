@@ -108,18 +108,14 @@ class Grid:
             lon_idx = self.lon_to_grid_col(min([p[0] for p in b.points[:]]))
             lat_idx = self.lat_to_grid_row(min([p[1] for p in b.points[:]]))
             self.bin_idx[lat_idx, lon_idx] = i
-
     def lon_to_grid_col(self, lon):
         return math.floor(round((lon - self.min_lon) / self.lon_cell_size, 6))
-
     def lat_to_grid_row(self, lat):
         return math.floor(round((lat - self.min_lat) / self.lat_cell_size, 6))
-
     def get_bin_idx(self, lon, lat):
         lon_idx = self.lon_to_grid_col(lon)
         lat_idx = self.lat_to_grid_row(lat)
         return self.bin_idx[lat_idx, lon_idx]
-
     def plot_with_query_point(self, query_point):
         for bidx in range(len(self.bins)):
             b = self.bins[bidx]
@@ -133,7 +129,6 @@ class Grid:
             #             y.append(self.min_lat + (row + 0.5) * self.lat_cell_size)
             plt.plot(x, y)
             # break
-
         plt.scatter(query_point.x, query_point.y, s=80, marker="*")
         plt.show()
 
