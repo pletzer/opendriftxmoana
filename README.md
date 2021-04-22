@@ -9,15 +9,19 @@ We recommend using a virtual environment to install all dependencies for this pr
 
 After installing miniconda, you can create a virtual environment from a terminal as follows:
 ```
+git clone https://github.com/simonweppe/opendrift
+cd opendrift
 conda env create -f environment.yml
+conda activate opendrift_somin
+pip install -e .
 ```
-This will create the opendriftxmoana environment. 
+This will create the opendrift_simon environment. 
 
 Everytime you want to work on the project, you need to *activate* it before: 
 ```
-conda activate opendriftxmoana
+conda activate opendrift_simon
 ```
-You should see `(opendriftxmoana)` prepended to your command line prompt as a hint that it is now activated.
+You should see `(opendrift_simon)` prepended to your command line prompt as a hint that it is now activated.
 
 To deactivate the environment, type
 ```
