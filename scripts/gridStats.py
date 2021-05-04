@@ -1,4 +1,3 @@
-import vtk
 import netCDF4
 import argparse
 
@@ -22,6 +21,9 @@ dLon1 = lon[:, 1:] - lon[:, 0:-1]
 
 dLat0 = lat[:1, :] - lat[0:-1, :]
 dLat1 = lat[:, 1:] - lat[:, 0:-1]
+
+print(f'lon min, max: {lon.min()} {lon.max()}')
+print(f'lat min, max: {lat.min()} {lat.max()}')
 
 print(f'lon diff 0 (min/max/std): {dLon0.min()} {dLon0.max()} {dLon0.std()}')
 print(f'lon diff 1 (min/max/std): {dLon1.min()} {dLon1.max()} {dLon1.std()}')
