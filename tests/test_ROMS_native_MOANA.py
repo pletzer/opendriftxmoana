@@ -9,7 +9,7 @@ from opendrift.models.bivalvelarvae import BivalveLarvae
 
 
 r = reader_ROMS_native_MOANA.Reader('input/nz5km_avg_200601.nc')
-o = BivalveLarvae(loglevel=0)
+o = BivalveLarvae(loglevel=30)
 o.add_reader([r])
 
 ###############################
@@ -38,21 +38,15 @@ o.set_config('general:coastline_action','previous')
 
 o.list_config()
 
-lonmin, lonmax = 170., 180.
-latmin, latmax = -50., -45.
-npoints = 4
-dlon, dlat = (lonmax - lonmin)/float(npoints), (latmax - latmin)/float(npoints)
+lons = np.array([172., 180., 180., 172.])
+lats = np.array([-50., -50., -45., -45.])
 
-
-lons = np.array([lonmin + i*dlon for i in range(npoints)])
-lats = np.array([latmin + i*dlat for i in range(npoints)])
-
-nseed = 10
-o.seed_within_polygon(lons, lats, time=datetime(year=2006, month=1, day=1), z = -5.)
+nseeds = 10
+o.seed_within_polygon(lons, lats, number=nseeds, time=datetime(year=2006, month=1, day=1), z = -1.)
 #o.plot()
 
 o.run(stop_on_error=False,
-      end_time=datetime(year=2006, month=1, day=10),
+      end_time=datetime(year=2006, month=1, day=30),
       time_step=900, 
       time_step_output = 86400.0,
       export_variables = [])
