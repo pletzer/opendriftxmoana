@@ -151,6 +151,8 @@ lats_end = lats[index_of_last, range(lons.shape[1])]
 status_end = status[index_of_last, range(lons.shape[1])]
 print(o.status_categories)
 
+print(f'check sum: {np.abs(lons_end).sum() + np.abs(lats_end).sum()}')
+
 outFile = open(f'{args.output}{args.name}_{yyyy0}{mm0}.txt','w')
 
 for i in range(len(lons_end)):

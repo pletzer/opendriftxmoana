@@ -21,7 +21,7 @@ source activate opendrift_simon
 
 #Set variables
 inPath='/nesi/nobackup/mocean02574/NZB_N50/'
-topdir='/home/pletzera/opendriftxmoana-calquigs/'
+topdir=$(pwd)
 outPath="$topdir/output/"
 name='TAS' 
 lon=173.1
