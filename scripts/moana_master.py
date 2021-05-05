@@ -62,7 +62,7 @@ reader2.multiprocessing_fail = True
 #Create Simulation Object
 ###############################
 
-o = BivalveLarvae(loglevel=0)
+o = BivalveLarvae(loglevel=30)
 o.add_reader([reader0, reader1, reader2])
 
 ###############################
